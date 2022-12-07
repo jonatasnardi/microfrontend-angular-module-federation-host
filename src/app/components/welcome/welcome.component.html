@@ -1,0 +1,24 @@
+<div class="host-welcome">
+  <div class="host-welcome__application-selector">
+    <div *ngFor="let route of routes$ | async"
+         [routerLink]="route.routePath"
+         class="host-welcome__application-selector-item"
+    >
+      {{ route.displayName }}
+    </div>
+  </div>
+  <div class="host-welcome__react">
+    <div>
+      This component part is just to demonstrate passing props to react remote plugin
+    </div>
+    <button class="host-welcome__react-button"
+            (click)="passReactProps()"
+    >
+      Pass new props new react plugin below
+    </button>
+    <react-wrapper class="host-welcome__react-wrapper"
+                   [configuration]="reactPluginConfiguration$ | async"
+                   [props]="reactPluginProps"
+    ></react-wrapper>
+  </div>
+</div>
